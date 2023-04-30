@@ -29,6 +29,7 @@ class Decoding:
                 message += chr(int(hidden_bits[i], 2))
         if "$t3g0" in message:
             print("Hidden Message:", message[:-5])
+            return message[:-5]
         else:
             print("No Hidden Message Found")
 

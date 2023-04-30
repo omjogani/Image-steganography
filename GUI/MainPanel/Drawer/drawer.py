@@ -1,11 +1,17 @@
 from flet import *
 from functools import partial
-
+import pika
 
 class ModernNavBar(UserControl):
     def __init__(self, func):
         self.func = func
         super().__init__()
+
+    def handle_home_screen(self):
+        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        channel = connection.channel()
+        channel.queue_declare(queue='update_ui')
+        channel.basic_publish(exchange='', routing_key='update_ui', body='HOME')
 
     def highlight_container(self, e):
         if e.data == "true":
@@ -24,6 +30,7 @@ class ModernNavBar(UserControl):
             e.control.content.update()
 
     def user_data(self, initials: str, name: str, description: str):
+        print("user_data")
         return Container(
             content=Row(
                 controls=[
@@ -65,6 +72,7 @@ class ModernNavBar(UserControl):
         )
 
     def contained_icon(self, icon_name, text):
+        print("containerd_icon")
         return Container(
             width=180,
             height=45,
@@ -95,8 +103,8 @@ class ModernNavBar(UserControl):
                 ],
             ),
         )
-
     def build(self):
+        print("build")
         return Container(
             width=200,
             height=580,
@@ -117,14 +125,15 @@ class ModernNavBar(UserControl):
                     #     )
                     # ),
                     Divider(height=5, color="white24"),
-                    self.contained_icon(icons.HOME_ROUNDED, "Home", ),
+                    GestureDetector(
+                        on_tap=self.handle_home_screen,
+                        content=self.contained_icon(icons.HOME_ROUNDED, "Home",),
+                    ),
                     self.contained_icon(icons.KEY_ROUNDED, "Generate Key"),
                     self.contained_icon(icons.LOCK_ROUNDED, "Encryption"),
                     self.contained_icon(icons.LOCK_OPEN_ROUNDED, "Decryption"),
-                    self.contained_icon(icons.PERSON_PIN_ROUNDED, "About Us"),
-                    self.contained_icon(icons.CODE_ROUNDED, "Developers"),
-                    Divider(color="white24", height=5),
-                    self.contained_icon(icons.LOGOUT_ROUNDED, "Logout"),
+                    self.contained_icon(icons.CODE_ROUNDED, "Comparison"),
+                    Divider(height=5, color="white24"),
                 ],
             ),
         )

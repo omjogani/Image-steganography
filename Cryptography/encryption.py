@@ -12,7 +12,8 @@ class Encrypter:
     def padder(self, s):
         return s + b"\0" * (AES.block_size - len(s) % AES.block_size)
 
-    def encrypt(self, message, key, key_size=256):
+    def encrypt(self, message, key_size=256):
+        key = b'[EX\xc8\xd5\xbfI{\xa2$\x05(\xd5\x18\xbf\xc0\x85)\x10nc\x94\x02)j\xdf\xcb\xc4\x94\x9d(\x9e'
         message = self.padder(message)
         iv = Random.new().read(AES.block_size)
         cipher = AES.new(key, AES.MODE_CBC, iv)

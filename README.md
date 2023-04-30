@@ -5,12 +5,12 @@ Image Steganography Tool : Hide the data behind Image
 
 - [x] Implementation of AES (Encryption & Decryption)
 - [x] Basic Layout of GUI
-- [ ] Integration of AES Algorithms to GUI
-- [ ] Add Choose File in GUI
-- [ ] Implementation of LSB
-- [ ] Integrate LSB with AES
-- [ ] Form the Stego Image
-- [ ] Complete & Final Touch Up
+- [x] Integration of AES Algorithms to GUI
+- [x] Add Choose File in GUI
+- [x] Implementation of LSB
+- [x] Integrate LSB with AES
+- [x] Form the Stego Image
+- [x] Complete & Final Touch Up
 
 ### Group Members
 

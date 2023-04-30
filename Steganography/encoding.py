@@ -5,6 +5,7 @@ from PIL import Image
 class Encoding:
     def encode(src, message, dest):
         img = Image.open(src, 'r')
+        print(message)
         width, height = img.size
         array = np.array(list(img.getdata()))
 

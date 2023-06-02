@@ -10,6 +10,13 @@ Data which is supposed to be hidden in Image will be encrypted by AES(Advanced E
 ![HomeScreen](https://github.com/omjogani/Image-steganography/blob/master/Screenshots/home_screen.JPG?raw=true "Home Screen")
 Checkout More Screenshots [here](https://github.com/omjogani/Image-steganography/tree/master/Screenshots)
 
+### Documentations
+
+---
+- [Report](https://github.com/omjogani/Image-steganography/blob/master/Docs/Report.Image-Steganography.pdf)
+- [Presentation](https://github.com/omjogani/Image-steganography/blob/master/Docs/Presentation.Image-Steganography.pdf)
+
+
 ### Technical Details
 
 ---
